@@ -8,7 +8,6 @@
 
 
 var arrayPc = [];
-var arrayUtente = [];
 var elemento;
 //***************CREAZIONE E INSERIMENTO 16 CIFRE IN ARRAY SOFTWARE
 while (arrayPc.length < 16) {
@@ -17,15 +16,18 @@ while (arrayPc.length < 16) {
 console.log(arrayPc);
 
 //******************RICHIESTA A UTENTE E CONTROLLO
-for (var i = 0; i < 84; i++) {
-    var richiesta = parseInt(prompt('Inserisci un numero intero'));
-    if (arrayUtente.includes(richiesta)) {
-        var attenzione = prompt('Attenzione, il numero che hai inserito è già esistente!');
+var arrayUtente = [];
+do {
+    var numero2 = parseInt(prompt('Inserisci un numero intero da 1 a 100'));
+    if (!trovaElemento(arrayUtente, numero2)) {
+        arrayUtente.push(numero2);
+        console.log(arrayUtente);
     } else {
-        arrayUtente.push(richiesta);
+        var allerta1 = alert('Il numero che hai inserito è già esistente');
     }
+} while (!trovaElemento(arrayPc, numero2)) {
+    var allerta2 = alert('Mi dispiace, hai perso');
 }
-console.log(arrayUtente);
 
 //***********FUNZIONI
 function numCreation(a, b) {
