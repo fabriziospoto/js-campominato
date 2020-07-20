@@ -8,26 +8,24 @@
 
 
 var arrayPc = [];
-
+var arrayUtente = [];
+var elemento;
 //***************CREAZIONE E INSERIMENTO 16 CIFRE IN ARRAY SOFTWARE
-// for (var i = 0; i < 16; i++) {
-//     var elemento;
-//     var inserimento1 = numCreation(elemento, arrayPc);
-//     var trovatoPc = trovaElemento(arrayPc, elemento);
-//     if (elemento != arrayPc[i]) {
-//         // var inserimento2 = numCreation(elemento, arrayPc);
-//
-//     }
-// }
-i = 0
-var inserimento1;
-while (i < 16) {
-    inserimento1 = numCreation(elemento, arrayPc);
-    i++;
+while (arrayPc.length < 16) {
+    var numero = numCreation(elemento, arrayPc);
 }
 console.log(arrayPc);
 
-
+//******************RICHIESTA A UTENTE E CONTROLLO
+for (var i = 0; i < 84; i++) {
+    var richiesta = parseInt(prompt('Inserisci un numero intero'));
+    if (arrayUtente.includes(richiesta)) {
+        var attenzione = prompt('Attenzione, il numero che hai inserito è già esistente!');
+    } else {
+        arrayUtente.push(richiesta);
+    }
+}
+console.log(arrayUtente);
 
 //***********FUNZIONI
 function numCreation(a, b) {
@@ -35,7 +33,7 @@ function numCreation(a, b) {
     if (b.includes(a)) {
         var f = Math.floor(Math.random() * 100) + 1;
     } else {
-        b.push(a);
+    b.push(a);
     }
 }
 
