@@ -15,17 +15,19 @@ while (arrayPc.length < 16) {
 }
 console.log(arrayPc);
 
-//******************RICHIESTA A UTENTE E CONTROLLO
+//******************RICHIESTA A UTENTE, CONTROLLO E RISPOSTA
 var arrayUtente = [];
 var score = 0;
+
 do {
     var numero2 = parseInt(prompt('Inserisci un numero intero da 1 a 100'));
-    if (!trovaElemento(arrayUtente, numero2)) {
-        arrayUtente.push(numero2);
+    if (trovaElemento(arrayUtente, numero2)) {
+        var allerta1 = alert('Il numero che hai inserito è già esistente.');
+
     } else {
-        var allerta1 = alert('Il numero che hai inserito è già esistente');
+        arrayUtente.push(numero2);
+        score += 1;
     }
-    score += 1;
 } while (!trovaElemento(arrayPc, numero2)) {
     var allerta2 = alert('Mi dispiace, hai perso. Il tuo punteggio è ' + score + '.');
 }
