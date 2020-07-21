@@ -9,6 +9,24 @@
 
 var arrayPc = [];
 var elemento;
+//***************RICHIESTA LIVELLO
+var level = parseInt(prompt('Inserisci 0, 1 o 2 per scegliere il livello'));
+if (level !=0 && level != 1 && level != 2) {
+    alert('Attenzione! Inserisci 0, 1 o 2 per scegliere il livello');
+}
+
+switch (level) {
+    case 0:
+    var max = 100;
+    break;
+    case 1:
+    var max = 80;
+    break;
+    case 2:
+    var max = 50;
+    break;
+}
+
 //***************CREAZIONE E INSERIMENTO 16 CIFRE IN ARRAY SOFTWARE
 while (arrayPc.length < 16) {
     var numero = numCreation(elemento, arrayPc);
@@ -20,24 +38,25 @@ var arrayUtente = [];
 var score = 0;
 
 do {
-    var numero2 = parseInt(prompt('Inserisci un numero intero da 1 a 100'));
+    var numero2 = parseInt(prompt('Inserisci un numero intero da 1 a ' + max));
     if (trovaElemento(arrayUtente, numero2)) {
         var allerta1 = alert('Il numero che hai inserito è già esistente.');
-
+    } else if (numero2 <= 0 || numero2 > max) {
+        alert('Numero non consentito');
     } else {
         arrayUtente.push(numero2);
         score += 1;
     }
 } while (!trovaElemento(arrayPc, numero2)) {
-    var allerta2 = alert('Mi dispiace, hai perso. Il tuo punteggio è ' + score + '.');
+    var allerta2 = alert('Mi dispiace, hai perso. Il tuo punteggio è ' + (score - 1) + '.');
 }
 console.log(arrayUtente);
 
 //***********FUNZIONI
 function numCreation(a, b) {
-    var a = Math.floor(Math.random() * 100) + 1;
+    var a = Math.floor(Math.random() * max) + 1;
     if (b.includes(a)) {
-        var f = Math.floor(Math.random() * 100) + 1;
+        var f = Math.floor(Math.random() * max) + 1;
     } else {
     b.push(a);
     }
